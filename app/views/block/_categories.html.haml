@@ -1,0 +1,7 @@
+#categories
+  .screenSize
+    .menuCategory
+      %ul
+        - feeds.each_with_index do |feed, i|
+          %li
+            = link_to feed.title.truncate(20), category_item_path(feed: feed.slug), class: "linkCategory #{current_feed(category_item_path(feed: feed.slug))}", title: feed.title

@@ -1,0 +1,17 @@
+!!!
+%html
+
+  %head
+    %title Feednews
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+  %body
+    = render partial: 'block/header'
+    = yield
+    = render partial: 'block/footer'
+    = javascript_include_tag "application"
+
+    #js
+      = yield :javascript

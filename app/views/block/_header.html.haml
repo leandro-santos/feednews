@@ -1,0 +1,22 @@
+#header
+  .screenSize
+    %h1.logo
+      =link_to '', root_path, class: 'logo'
+    =link_to image_tag('/assets/publicity2.png'), root_path, class: 'publicity'
+    %ul
+      %li
+        =link_to 'Últimas Notícias', category_path(id: 'ultimas-noticias'), class: "linkMenu menuDivider #{current_category(category_path(id: 'ultimas-noticias'))}"
+      %li
+        =link_to 'Esporte', category_path(id: 'esporte'), class: "linkMenu menuDivider #{current_category(category_path(id: 'esporte'))}"
+      %li
+        =link_to 'Economia', category_path(id: 'economia'), class: "linkMenu menuDivider #{current_category(category_path(id: 'economia'))}"
+      %li
+        =link_to 'Mundo', category_path(id: 'mundo'), class: "linkMenu menuDivider #{current_category(category_path(id: 'mundo'))}"
+      %li
+        =link_to 'Entreterimento', category_path(id: 'entreterimento'), class: "linkMenu menuDivider #{current_category(category_path(id: 'entreterimento'))}"
+      %li
+        =link_to 'Tecnologia', category_path(id: 'tecnologia'), class: "linkMenu menuDivider #{current_category(category_path(id: 'tecnologia'))}"
+      %li
+        =link_to 'Saúde', category_path(id: 'saude'), class: "linkMenu menuDivider #{current_category(category_path(id: 'saude'))}"
+      %li
+        =link_to 'Ciência', category_path(id: 'ciencia'), class: "linkMenu #{current_category(category_path(id: 'ciencia'))}"

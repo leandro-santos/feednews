@@ -1,0 +1,27 @@
+#feed
+  .screenSize
+    - feeds.each_with_index do |feed, i|
+      .content
+        - if i < 1
+          =link_to image_tag('/assets/publicity1.jpg'), root_path, class: 'publicity'
+        - if !feed.imageLink.blank?
+          = link_to image_tag(feed.imageUrl,class: 'imageTitle'), feed.imageLink, target: '_blank'
+        .title
+          %h1.titleRss
+            - if !feed.link.blank?
+              = link_to feed.title, feed.link, class: 'linkFeedTitle', target: '_blank'
+            - else
+              = feed.title
+          %h3.subTitleRss
+            = feed.description
+        - news[i].each do |newsItem|
+          .linkNewsTitle
+            %h4.linkNews
+              - if newsItem.link.blank?
+                = newsItem.title
+              - else
+                = link_to newsItem.title, newsItem.link, class: 'linkNews', target: '_blank'
+            %h6.date
+              = newsItem.pubDate.to_datetime.to_formatted_s(:long) if newsItem.pubDate.present?
+          .feedNews
+            = newsItem.description.html_safe if !newsItem.description.blank?
