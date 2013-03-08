@@ -4,14 +4,14 @@ class News < ActiveRecord::Base
                   :description,
                   :link,
                   :author,
-                  :categoryDomain,
+                  :category_domain,
                   :comments,
-                  :enclosureUrl,
-                  :enclosureLength,
-                  :enclosureType,
-                  :guidIsPermaLink,
-                  :pubDate,
-                  :sourceUrl
+                  :enclosure_url,
+                  :enclosure_length,
+                  :enclosure_type,
+                  :guid_is_perma_link,
+                  :pub_date,
+                  :source_url
 
   belongs_to :feed
 

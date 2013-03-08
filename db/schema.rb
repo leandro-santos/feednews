@@ -24,67 +24,67 @@ ActiveRecord::Schema.define(:version => 20130228131248) do
   add_index "categories", ["slug"], :name => "index_categories_on_slug", :unique => true
 
   create_table "feeds", :force => true do |t|
-    t.string   "rssLink"
+    t.string   "rss_link"
     t.string   "xml_version"
     t.string   "rss_version"
-    t.string   "title",                  :null => false
-    t.string   "link",                   :null => false
-    t.string   "description",            :null => false
+    t.string   "title",                    :null => false
+    t.string   "link",                     :null => false
+    t.string   "description",              :null => false
     t.string   "language"
     t.string   "copyright"
-    t.string   "managingEditor"
-    t.string   "webMaster"
-    t.string   "pubDate"
-    t.string   "lastBuildDate"
+    t.string   "managing_editor"
+    t.string   "web_master"
+    t.string   "pub_date"
+    t.string   "last_build_date"
     t.string   "categories"
-    t.string   "categoryDomain"
+    t.string   "category_domain"
     t.string   "generator"
     t.string   "docs"
-    t.string   "cloudDomain"
-    t.string   "cloudPort"
-    t.string   "cloudPath"
-    t.string   "cloudRegisterProcedure"
-    t.string   "cloudProtocol"
+    t.string   "cloud_domain"
+    t.string   "cloud_port"
+    t.string   "cloud_path"
+    t.string   "cloud_register_procedure"
+    t.string   "cloud_protocol"
     t.string   "ttl"
-    t.string   "imageUrl"
-    t.string   "imageTitle"
-    t.string   "imageLink"
-    t.string   "imageWidth"
-    t.string   "imageHeight"
+    t.string   "image_url"
+    t.string   "image_title"
+    t.string   "image_link"
+    t.string   "image_width"
+    t.string   "image_height"
     t.string   "rating"
-    t.string   "textInputTitle"
-    t.string   "textInputDescription"
-    t.string   "textInputName"
-    t.string   "textInputLink"
-    t.string   "skipHoursHour"
-    t.string   "skipDaysDay"
+    t.string   "text_input_title"
+    t.string   "text_input_description"
+    t.string   "text_input_name"
+    t.string   "text_input_link"
+    t.string   "skip_hours_hour"
+    t.string   "skip_days_day"
     t.string   "slug"
     t.integer  "category_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "feeds", ["category_id"], :name => "index_feeds_on_category_id"
-  add_index "feeds", ["rssLink"], :name => "index_feeds_on_rssLink", :unique => true
+  add_index "feeds", ["rss_link"], :name => "index_feeds_on_rss_link", :unique => true
   add_index "feeds", ["slug"], :name => "index_feeds_on_slug", :unique => true
   add_index "feeds", ["title"], :name => "index_feeds_on_title", :unique => true
 
   create_table "news", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "link",            :null => false
+    t.string   "link",               :null => false
     t.string   "author"
-    t.string   "categoryDomain"
+    t.string   "category_domain"
     t.string   "comments"
-    t.string   "enclosureUrl"
-    t.string   "enclosureLength"
-    t.string   "enclosureType"
-    t.string   "guidIsPermaLink"
-    t.string   "pubDate"
-    t.string   "sourceUrl"
+    t.string   "enclosure_url"
+    t.string   "enclosure_length"
+    t.string   "enclosure_type"
+    t.string   "guid_is_perma_link"
+    t.string   "pub_date"
+    t.string   "source_url"
     t.integer  "feed_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "news", ["feed_id"], :name => "index_news_on_feed_id"

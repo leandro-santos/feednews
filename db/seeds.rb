@@ -129,14 +129,14 @@ module RSSnews
                                                         transformers: [transformer])
       @news.link = it.link.to_s
       @news.author = it.author.to_s
-      @news.categoryDomain = it.categories.to_s
+      @news.category_domain = it.categories.to_s
       @news.comments = it.comments.to_s
-      @news.enclosureUrl = it.enclosure.url.to_s if defined? it.enclosure.url
-      @news.enclosureLength = it.enclosure.length.to_s if defined? it.enclosure.length
-      @news.enclosureType = it.enclosure.type.to_s if defined? it.enclosure.type
-      @news.guidIsPermaLink = it.guid.to_s
-      @news.pubDate = it.pubDate.to_s
-      @news.sourceUrl = it.source.to_s
+      @news.enclosure_url = it.enclosure.url.to_s if defined? it.enclosure.url
+      @news.enclosure_length = it.enclosure.length.to_s if defined? it.enclosure.length
+      @news.enclosure_type = it.enclosure.type.to_s if defined? it.enclosure.type
+      @news.guid_is_perma_link = it.guid.to_s
+      @news.pub_date = it.pubDate.to_s
+      @news.source_url = it.source.to_s
       @news.feed_id = feed_id
 
       @news.save!
@@ -155,14 +155,14 @@ module RSSfeed
 
       rss = RSS::Parser.parse(open(rssFeed[:url]).read, false)
 
-      if Feed.exists?(rssLink: rssFeed[:url])
-        existLink = Feed.where('rssLink = ?', rssFeed[:url]).first
+      if Feed.exists?(rss_link: rssFeed[:url])
+        existLink = Feed.where('rss_link = ?', rssFeed[:url]).first
         RSSnews.news(rss.items, existLink.id)
         next
       end
 
       feed = Feed.new
-      feed.rssLink = rssFeed[:url]
+      feed.rss_link = rssFeed[:url]
       feed.xml_version = rss.feed_version.to_s
       feed.rss_version = rss.rss_version.to_s
       feed.title = rss.channel.title.to_s
@@ -170,33 +170,33 @@ module RSSfeed
       feed.description = rss.channel.description.to_s
       feed.language = rss.channel.language.to_s
       feed.copyright = rss.channel.copyright.to_s
-      feed.managingEditor = rss.channel.managingEditor.to_s
-      feed.webMaster = rss.channel.webMaster.to_s
-      feed.pubDate = rss.channel.pubDate.to_s
-      feed.lastBuildDate = rss.channel.lastBuildDate.to_s
+      feed.managing_editor = rss.channel.managingEditor.to_s
+      feed.web_master = rss.channel.webMaster.to_s
+      feed.pub_date = rss.channel.pubDate.to_s
+      feed.last_build_date = rss.channel.lastBuildDate.to_s
       feed.category_id = rssFeed[:category]
       feed.categories = rss.channel.categories.to_s
-      feed.categoryDomain = rss.channel.category.domain.to_s if defined? rss.channel.category.domain
+      feed.category_domain = rss.channel.category.domain.to_s if defined? rss.channel.category.domain
       feed.generator = rss.channel.generator.to_s
       feed.docs = rss.channel.docs.to_s
-      feed.cloudDomain = rss.channel.cloud.domain.to_s if defined? rss.channel.cloud.domain
-      feed.cloudPort = rss.channel.cloud.port.to_s if defined? rss.channel.cloud.port
-      feed.cloudPath = rss.channel.cloud.path.to_s if defined? rss.channel.cloud.path
-      feed.cloudRegisterProcedure = rss.channel.cloud.registerProcedure.to_s if defined? rss.channel.cloud.registerProcedure
-      feed.cloudProtocol = rss.channel.cloud.protocol.to_s if defined? rss.channel.cloud.protocol
+      feed.cloud_domain = rss.channel.cloud.domain.to_s if defined? rss.channel.cloud.domain
+      feed.cloud_port = rss.channel.cloud.port.to_s if defined? rss.channel.cloud.port
+      feed.cloud_path = rss.channel.cloud.path.to_s if defined? rss.channel.cloud.path
+      feed.cloud_register_Procedure = rss.channel.cloud.registerProcedure.to_s if defined? rss.channel.cloud.registerProcedure
+      feed.cloud_protocol = rss.channel.cloud.protocol.to_s if defined? rss.channel.cloud.protocol
       feed.ttl = rss.channel.ttl.to_s
-      feed.imageUrl = rss.channel.image.url.to_s if defined? rss.channel.image.url
-      feed.imageTitle = rss.channel.image.title.to_s if defined? rss.channel.image.title
-      feed.imageLink = rss.channel.image.link.to_s if defined? rss.channel.image.link
-      feed.imageWidth = rss.channel.image.width.to_s if defined? rss.channel.image.width
-      feed.imageHeight = rss.channel.image.height.to_s if defined? rss.channel.image.height
+      feed.image_url = rss.channel.image.url.to_s if defined? rss.channel.image.url
+      feed.image_title = rss.channel.image.title.to_s if defined? rss.channel.image.title
+      feed.image_link = rss.channel.image.link.to_s if defined? rss.channel.image.link
+      feed.image_width = rss.channel.image.width.to_s if defined? rss.channel.image.width
+      feed.image_height = rss.channel.image.height.to_s if defined? rss.channel.image.height
       feed.rating = rss.channel.rating.to_s
-      feed.textInputTitle = rss.channel.textInput.title.to_s if defined? rss.channel.textInput.title
-      feed.textInputDescription = rss.channel.textInput.description.to_s if defined? rss.channel.textInput.description
-      feed.textInputName = rss.channel.textInput.name.to_s if defined? rss.channel.textInput.name
-      feed.textInputLink = rss.channel.textInput.link.to_s if defined? rss.channel.textInput.link
-      feed.skipHoursHour = rss.channel.skipHours.hours.to_s if defined? rss.channel.skipHours.hours
-      feed.skipDaysDay = rss.channel.skipDays.days.to_s if defined? rss.channel.skipDays.days
+      feed.text_input_title = rss.channel.textInput.title.to_s if defined? rss.channel.textInput.title
+      feed.text_input_description = rss.channel.textInput.description.to_s if defined? rss.channel.textInput.description
+      feed.text_input_name = rss.channel.textInput.name.to_s if defined? rss.channel.textInput.name
+      feed.text_input_link = rss.channel.textInput.link.to_s if defined? rss.channel.textInput.link
+      feed.skip_hours_hour = rss.channel.skipHours.hours.to_s if defined? rss.channel.skipHours.hours
+      feed.skip_days_day = rss.channel.skipDays.days.to_s if defined? rss.channel.skipDays.days
 
       RSSnews.news(rss.items, feed.id) if feed.save!
 

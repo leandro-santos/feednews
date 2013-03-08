@@ -4,8 +4,8 @@
       .content
         - if i < 1
           =link_to image_tag('/assets/publicity1.jpg'), root_path, class: 'publicity'
-        - if !feed.imageLink.blank?
-          = link_to image_tag(feed.imageUrl,class: 'imageTitle'), feed.imageLink, target: '_blank'
+        - if !feed.image_link.blank?
+          = link_to image_tag(feed.image_url,class: 'imageTitle'), feed.image_link, target: '_blank'
         .title
           %h1.titleRss
             - if !feed.link.blank?
@@ -22,6 +22,6 @@
               - else
                 = link_to newsItem.title, newsItem.link, class: 'linkNews', target: '_blank'
             %h6.date
-              = newsItem.pubDate.to_datetime.to_formatted_s(:long) if newsItem.pubDate.present?
+              = newsItem.pub_date.to_datetime.to_formatted_s(:long) if newsItem.pub_date.present?
           .feedNews
             = newsItem.description.html_safe if !newsItem.description.blank?

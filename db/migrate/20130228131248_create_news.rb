@@ -5,14 +5,14 @@ class CreateNews < ActiveRecord::Migration
       t.text   :description
       t.string :link, null: false
       t.string :author
-      t.string :categoryDomain
+      t.string :category_domain
       t.string :comments
-      t.string :enclosureUrl
-      t.string :enclosureLength
-      t.string :enclosureType
-      t.string :guidIsPermaLink
-      t.string :pubDate
-      t.string :sourceUrl
+      t.string :enclosure_url
+      t.string :enclosure_length
+      t.string :enclosure_type
+      t.string :guid_is_perma_link
+      t.string :pub_date
+      t.string :source_url
 
       t.references :feed
 

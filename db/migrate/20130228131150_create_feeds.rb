@@ -1,7 +1,7 @@
 class CreateFeeds < ActiveRecord::Migration
   def up
     create_table :feeds do |t|
-      t.string :rssLink
+      t.string :rss_link
       t.string :xml_version
       t.string :rss_version
       t.string :title, null: false
@@ -9,32 +9,32 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :description, null: false
       t.string :language
       t.string :copyright
-      t.string :managingEditor
-      t.string :webMaster
-      t.string :pubDate
-      t.string :lastBuildDate
+      t.string :managing_editor
+      t.string :web_master
+      t.string :pub_date
+      t.string :last_build_date
       t.string :categories
-      t.string :categoryDomain
+      t.string :category_domain
       t.string :generator
       t.string :docs
-      t.string :cloudDomain
-      t.string :cloudPort
-      t.string :cloudPath
-      t.string :cloudRegisterProcedure
-      t.string :cloudProtocol
+      t.string :cloud_domain
+      t.string :cloud_port
+      t.string :cloud_path
+      t.string :cloud_register_procedure
+      t.string :cloud_protocol
       t.string :ttl
-      t.string :imageUrl
-      t.string :imageTitle
-      t.string :imageLink
-      t.string :imageWidth
-      t.string :imageHeight
+      t.string :image_url
+      t.string :image_title
+      t.string :image_link
+      t.string :image_width
+      t.string :image_height
       t.string :rating
-      t.string :textInputTitle
-      t.string :textInputDescription
-      t.string :textInputName
-      t.string :textInputLink
-      t.string :skipHoursHour
-      t.string :skipDaysDay
+      t.string :text_input_title
+      t.string :text_input_description
+      t.string :text_input_name
+      t.string :text_input_link
+      t.string :skip_hours_hour
+      t.string :skip_days_day
       t.string :slug
 
       t.references :category
@@ -43,7 +43,7 @@ class CreateFeeds < ActiveRecord::Migration
     end
 
     add_index :feeds, :category_id
-    add_index :feeds, :rssLink, unique: true
+    add_index :feeds, :rss_link, unique: true
     add_index :feeds, :title, unique: true
     add_index :feeds, :slug, unique: true
   end
