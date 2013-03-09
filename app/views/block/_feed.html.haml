@@ -4,7 +4,7 @@
       .content
         - if i < 1
           =link_to image_tag('/assets/publicity1.jpg'), root_path, class: 'publicity'
-        - if !feed.image_link.blank?
+        - if !feed.image_link.blank? && !feed.image_url.blank?
           = link_to image_tag(feed.image_url,class: 'imageTitle'), feed.image_link, target: '_blank'
         .title
           %h1.titleRss
