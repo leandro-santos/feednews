@@ -38,11 +38,11 @@ class Feed < ActiveRecord::Base
                   :skip_hours_hour,
                   :skip_days_day
 
-  validates_presence_of :link
+  #validates_presence_of :link
   validates_presence_of :title
   #validates_format_of :link, with: /^(https?:\/\/)?(www\.)?([a-zA-Z0-9_\-]+)+\.([a-zA-Z]{2,4})/
   validates_uniqueness_of :rss_link
-  validates_uniqueness_of :title
+  #validates_uniqueness_of :title
 
   has_many :news, dependent: :destroy
   belongs_to :category

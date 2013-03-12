@@ -44,7 +44,7 @@ class CreateFeeds < ActiveRecord::Migration
 
     add_index :feeds, :category_id
     add_index :feeds, :rss_link, unique: true
-    add_index :feeds, :title, unique: true
+    #add_index :feeds, :title, unique: true
     add_index :feeds, :slug, unique: true
   end
 

@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(:version => 20130228131248) do
   add_index "feeds", ["category_id"], :name => "index_feeds_on_category_id"
   add_index "feeds", ["rss_link"], :name => "index_feeds_on_rss_link", :unique => true
   add_index "feeds", ["slug"], :name => "index_feeds_on_slug", :unique => true
-  add_index "feeds", ["title"], :name => "index_feeds_on_title", :unique => true
 
   create_table "news", :force => true do |t|
     t.string   "title"

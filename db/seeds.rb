@@ -9,8 +9,8 @@ module Categories
     Category.create(description: 'Mundo') unless Category.exists?(description: 'Mundo')
     Category.create(description: 'Entreterimento') unless Category.exists?(description: 'Entreterimento')
     Category.create(description: 'Tecnologia') unless Category.exists?(description: 'Tecnologia')
-    Category.create(description: 'Saúde') unless Category.exists?(description: 'Saúde')
-    Category.create(description: 'Ciência') unless Category.exists?(description: 'Ciência')
+    Category.create(description: 'Ciência e Saúde') unless Category.exists?(description: 'Ciência e Saúde')
+    Category.create(description: 'Educação') unless Category.exists?(description: 'Educação')
     Category.create(description: 'Últimas Notícias') unless Category.exists?(description: 'Últimas Notícias')
   end
 end
@@ -27,7 +27,12 @@ module RSSlink
              {url: 'http://www.band.uol.com.br/rss/noticias.xml', category: 8},
              {url: 'http://rss.uol.com.br/feed/noticias.xml', category: 8},
              {url: 'http://g1.globo.com/dynamo/rss2.xml', category: 8},
-             {url: 'http://www.terra.com.br/rss/', category: 8},
+             {url: 'http://rss.home.uol.com.br/index.xml', category: 8},
+             {url: 'http://noticias.terra.com.br/rss/Controller?channelid=187775b4786b2310VgnVCM3000009af154d0RCRD&ctName=atomo-noticia&lg=pt-br', category: 8},
+             {url: 'http://ultimosegundo.ig.com.br/rss.xml', category: 8},
+             {url: 'http://ultimosegundo.ig.com.br/brasil/rss.xml', category: 8},
+             {url: 'http://www.band.uol.com.br/rss/brasil.xml', category: 8},
+             {url: 'http://estadao.feedsportal.com/c/33043/f/534105/index.rss', category: 8},
               #esportes
              {url: 'http://br.esporteinterativo.yahoo.com/?format=rss', category: 1},
              {url: 'http://feeds.folha.uol.com.br/folha/esporte/rss091.xml', category: 1},
@@ -35,6 +40,14 @@ module RSSlink
              {url: 'http://esporte.uol.com.br/ultimas/index.xml', category: 1},
              {url: 'http://globoesporte.globo.com/dynamo/rss2.xml', category: 1},
              {url: 'http://esportes.terra.com.br/rss/Controller?channelid=2d19f517cd779310VgnVCM5000009ccceb0aRCRD&ctName=atomo-noticia&lg=pt-br', category: 1},
+             {url: 'http://esporte.uol.com.br/futebol/ultimas/index.xml', category: 1},
+             {url: 'http://esportesv7.terra.com.br/rss/Controller?channelid=04d1b3f715879310VgnVCM5000009ccceb0aRCRD&ctName=atomo-noticia&lg=pt-br', category: 1},
+             {url: 'http://esportes.terra.com.br/rss/Controller?channelid=1d530012b9879310VgnVCM5000009ccceb0aRCRD&ctName=atomo-noticia&lg=pt-br', category: 1},
+             {url: 'http://esporte.ig.com.br/rss.xml', category: 1},
+             {url: 'http://www.band.uol.com.br/rss/brasileirao_serie_a.xml', category: 1},
+             {url: 'http://www.band.uol.com.br/rss/copa_2014.xml', category: 1},
+             {url: 'http://estadao.feedsportal.com/c/33043/f/534114/index.rss', category: 1},
+             {url: 'http://blogs.estadao.com.br/copa-2014/feed/', category: 1},
               #economia
              {url: 'http://feeds.folha.uol.com.br/folha/dinheiro/rss091.xml', category: 2},
              {url: 'http://www.band.uol.com.br/rss/economia.xml', category: 2},
@@ -42,19 +55,33 @@ module RSSlink
              {url: 'http://g1.globo.com/dynamo/economia/rss2.xml', category: 2},
              {url: 'http://br.noticias.yahoo.com/economia/?format=rss', category: 2},
              {url: 'http://economia.terra.com.br/rss/portada/pt-br/feedrss.xml', category: 2},
+             {url: 'http://feeds.folha.uol.com.br/poder/rss091.xml', category: 2},
+             {url: 'http://br.economia.feedsportal.com/c/33512/f/584953/index.rss', category: 2},
               #mundo
              {url: 'http://feeds.folha.uol.com.br/folha/mundo/rss091.xml', category: 3},
              {url: 'http://www.band.uol.com.br/rss/mundo.xml', category: 3},
              {url: 'http://g1.globo.com/dynamo/mundo/rss2.xml', category: 3},
              {url: 'http://br.noticias.yahoo.com/mundo/?format=rss', category: 3},
              {url: 'http://noticias.terra.com.br/rss/Controller?channelid=31b0316871bf3310VgnVCM3000009af154d0RCRD&ctName=atomo-noticia&lg=pt-br', category: 3},
+             {url: 'http://ultimosegundo.ig.com.br/mundo/rss.xml', category: 3},
+
               #entreterimento
-             #{url: 'http://feeds.folha.uol.com.br/folha/dinheiro/rss091.xml', category: 5},
-             #{url: 'http://www.band.uol.com.br/rss/economia.xml', category: 5},
-             #{url: 'http://rss.uol.com.br/feed/economia.xml', category: 5},
-             #{url: 'http://g1.globo.com/dynamo/economia/rss2.xml', category: 5},
-             #{url: 'http://br.noticias.yahoo.com/economia/?format=rss', category: 5},
-             #{url: 'http://economia.terra.com.br/rss/portada/pt-br/feedrss.xml', category: 5},
+             {url: 'http://rss.jogos.uol.com.br/ultnot/index.xml', category: 4},
+             {url: 'http://musica.uol.com.br/ultnot/index.xml', category: 4},
+             {url: 'http://cinema.uol.com.br/ultnot/index.xml', category: 4},
+             {url: 'http://rss.carros.uol.com.br/ultnot/index.xml', category: 4},
+             {url: 'http://diversao.terra.com.br/rss/Controller?channelid=8a8775b4786b2310VgnVCM3000009af154d0RCRD&ctName=atomo-noticia&lg=pt-br', category: 4},
+             {url: 'http://vidaeestilo.terra.com.br/rss/Controller?channelid=4e9775b4786b2310VgnVCM3000009af154d0RCRD&ctName=atomo-noticia&lg=pt-br', category: 4},
+             {url: 'http://feeds.folha.uol.com.br/turismo/rss091.xml', category: 4},
+             {url: 'http://delas.ig.com.br/rss.xml', category: 4},
+             {url: 'http://moda.ig.com.br/rss.xml', category: 4},
+             {url: 'http://turismo.ig.com.br/rss.xml', category: 4},
+             {url: 'http://www.band.uol.com.br/rss/entretenimento.xml', category: 4},
+             {url: 'http://estadao.feedsportal.com/c/33043/f/534113/index.rss', category: 4},
+             {url: 'http://blogs.estadao.com.br/series-de-tv/feed/', category: 4},
+             {url: 'http://blogs.estadao.com.br/moda/feed/', category: 4},
+             {url: 'http://br.noticias.yahoo.com/entretenimento/?format=rss', category: 4},
+             {url: 'http://g1.globo.com/dynamo/carros/rss2.xml', category: 4},
               #tecnologia
              {url: 'http://feeds.folha.uol.com.br/folha/informatica/rss091.xml', category: 5},
              {url: 'http://www.band.uol.com.br/rss/tecnologia.xml', category: 5},
@@ -62,12 +89,37 @@ module RSSlink
              {url: 'http://g1.globo.com/dynamo/tecnologia/rss2.xml', category: 5},
              {url: 'http://br.noticias.yahoo.com/tecnologia/?format=rss', category: 5},
              {url: 'http://noticias.terra.com.br/rss/Controller?channelid=b8443aca7323a310VgnVCM20000099cceb0aRCRD&ctName=atomo-noticia&lg=pt-br', category: 5},
-              #Saúde
+             {url: 'http://feeds.folha.uol.com.br/tec/rss091.xml', category: 5},
+             {url: 'http://tecnologia.ig.com.br/rss.xml', category: 5},
+              #Ciencia e Saúde
              {url: 'http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml', category: 6},
              {url: 'http://www.band.uol.com.br/rss/saude.xml', category: 6},
              {url: 'http://catracalivre.folha.uol.com.br/editoria/servicos/saude-bem-estar/feed/', category: 6},
              {url: 'http://feeds.folha.uol.com.br/folha/ciencia/rss091.xml', category: 6},
-             {url: 'http://rss.uol.com.br/feed/saude.xml', category:6}
+             {url: 'http://noticias.terra.com.br/rss/Controller?channelid=881842b39854a310VgnVCM3000009acceb0aRCRD&ctName=atomo-noticia&lg=pt-br', category: 6},
+             {url: 'http://feeds.folha.uol.com.br/ambiente/rss091.xml', category: 6},
+             {url: 'http://feeds.folha.uol.com.br/comida/rss091.xml', category: 6},
+             {url: 'http://comida.ig.com.br/rss.xml', category: 6},
+             {url: 'http://www.band.uol.com.br/rss/ciencia.xml', category: 6},
+             {url: 'http://www.band.uol.com.br/rss/viva_bem.xml', category: 6},
+             {url: 'http://estadao.feedsportal.com/c/33043/f/534109/index.rss', category: 6},
+             {url: 'http://estadao.feedsportal.com/c/33043/f/534110/index.rss', category: 6},
+             {url: 'http://br.noticias.yahoo.com/ciencia/?format=rss', category: 6},
+             {url: 'http://br.noticias.yahoo.com/saude/?format=rss', category: 6},
+             {url: 'http://rss.uol.com.br/feed/saude.xml', category:6},
+              #Educação
+             {url: 'http://noticias.terra.com.br/rss/Controller?channelid=50999de762a7a310VgnVCM3000009acceb0aRCRD&ctName=atomo-noticia&lg=pt-br', category: 7},
+             {url: 'http://feeds.folha.uol.com.br/educacao/rss091.xml', category: 7},
+             {url: 'http://ultimosegundo.ig.com.br/educacao/rss.xml', category: 7},
+             {url: 'http://estadao.feedsportal.com/c/33043/f/534111/index.rss', category: 7},
+             {url: 'http://g1.globo.com/dynamo/educacao/rss2.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_indicadores.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_aprendizagem.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_comportamento.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_leitura.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_gestaoescolar.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_politicapublica.xml', category: 7},
+             {url: 'http://educarparacrescer.abril.com.br/v2008/includes/listas/rss_amigos-educar.xml', category: 7}
            ]
   end
 
