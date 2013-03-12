@@ -2,12 +2,14 @@
 %html
 
   %head
-    %title FeedNEWS
+    %title
+      = yield :title
     <link rel="shortcut icon" href="/assets/logo.png" />
     = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
+    <meta name="keywords" content="sites, noticias, noticia, feed, feeds, news, ultimas, esporte, esportes, tecnologia, tecnologias, economia, mundo, brasil, entreterimento, educacao, ciencia, saude">
+    <meta name="description" content="No FeedNEWS você encontra os feeds dos principais portais do brasil, com notícias e informações atualizadas diariamente.">
   %body
     = render partial: 'block/header'
     = yield

@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def title(title)
+    content_for :title, title
+  end
+
   def current_category(path)
     if request.path.include?(path)
       'selected'
