@@ -125,6 +125,7 @@ module RSSlink
 
 end
 
+# metodo em desuso excluir apos 1mes data de hoje 13/03/2013
 module RSSnews
 
   def self.news(items, feed_id)
@@ -205,7 +206,12 @@ module RSSfeed
 
     RSSlink.link.each do |rssFeed|
 
-      rss = RSS::Parser.parse(open(rssFeed[:url]).read, false)
+      begin
+        rss = RSS::Parser.parse(open(rssFeed[:url]).read, false)
+      rescue => error
+        p error
+        next
+      end
 
       if Feed.exists?(rss_link: rssFeed[:url])
         existLink = Feed.where('rss_link = ?', rssFeed[:url]).first
@@ -250,7 +256,9 @@ module RSSfeed
       feed.skip_hours_hour = rss.channel.skipHours.hours.to_s if defined? rss.channel.skipHours.hours
       feed.skip_days_day = rss.channel.skipDays.days.to_s if defined? rss.channel.skipDays.days
 
-      RSSnews.news(rss.items, feed.id) if feed.save!
+      feed.save!
+#      tirado para que o metodo de carregar news fique apenas fn:news
+#      RSSnews.news(rss.items, feed.id) if feed.save!
 
       p rss.channel.title.to_s+'    - Ok'
 
