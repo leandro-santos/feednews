@@ -10,11 +10,20 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="keywords" content="sites, noticias, noticia, feed, feeds, news, ultimas, esporte, esportes, tecnologia, tecnologias, economia, mundo, brasil, entreterimento, educacao, ciencia, saude">
     <meta name="description" content="No FeedNEWS você encontra os feeds dos principais portais do brasil, com notícias e informações atualizadas diariamente.">
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-39276150-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
   %body
     = render partial: 'block/header'
     = yield
     = render partial: 'block/footer'
     = javascript_include_tag "application"
-
-    #js
-      = yield :javascript

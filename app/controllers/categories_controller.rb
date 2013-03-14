@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def item
     @feeds = []
     @feed = Feed.find(params[:feed])
-    @news = @feed.news.order('pub_date DESC, updated_at DESC')
+    @news = @feed.news.order('pub_date DESC, updated_at ASC')
     category_id = Category.find_by_slug(params[:id]).id
     Feed.find_all_by_category_id(category_id).each do |i|
       @feeds << i

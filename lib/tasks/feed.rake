@@ -24,8 +24,12 @@ namespace :fn do
         rss.items.each do |it|
 
           feedNews = feed.news
-          if !feedNews.blank? && !it.link.blank? && feedNews.exists?(link: it.link.to_s) && feedNews.exists?(title: it.title.to_s)
-            next
+          if !feedNews.blank?
+            if !it.link.blank? && feedNews.exists?(link: it.link.to_s)
+              next
+            elsif !it.title.blank? && feedNews.exists?(title: it.title.to_s)
+              next
+            end
           end
 
           @news = News.new
