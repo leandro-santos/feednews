@@ -86,7 +86,7 @@ namespace :fn do
 
         end
 
-        p feed.link
+        p feed.rss_link
 
       end
 
