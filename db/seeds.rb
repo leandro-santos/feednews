@@ -188,7 +188,7 @@ module RSSnews
       @news.enclosure_length = it.enclosure.length.to_s if defined? it.enclosure.length
       @news.enclosure_type = it.enclosure.type.to_s if defined? it.enclosure.type
       @news.guid_is_perma_link = it.guid.to_s
-      @news.pub_date = it.pubDate.to_s
+      @news.pub_date = it.pubDate.to_datetime if !it.pubDate.blank?
       @news.source_url = it.source.to_s
       @news.feed_id = feed_id
 
@@ -230,8 +230,8 @@ module RSSfeed
       feed.copyright = rss.channel.copyright.to_s
       feed.managing_editor = rss.channel.managingEditor.to_s
       feed.web_master = rss.channel.webMaster.to_s
-      feed.pub_date = rss.channel.pubDate.to_s
-      feed.last_build_date = rss.channel.lastBuildDate.to_s
+      feed.pub_date = rss.channel.pubDate.to_datetime if !rss.channel.pubDate.blank?
+      feed.last_build_date = rss.channel.lastBuildDate.to_datetime if !rss.channel.lastBuildDate.blank?
       feed.category_id = rssFeed[:category]
       feed.categories = rss.channel.categories.to_s
       feed.category_domain = rss.channel.category.domain.to_s if defined? rss.channel.category.domain

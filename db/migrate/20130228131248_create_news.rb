@@ -11,7 +11,7 @@ class CreateNews < ActiveRecord::Migration
       t.string :enclosure_length
       t.string :enclosure_type
       t.string :guid_is_perma_link
-      t.string :pub_date
+      t.datetime :pub_date
       t.string :source_url
 
       t.references :feed

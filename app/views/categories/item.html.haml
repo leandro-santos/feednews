@@ -22,6 +22,6 @@
             - else
               = link_to newsItem.title, newsItem.link, class: 'linkNews', target: '_blank'
           %h6.date
-            = l(newsItem.pub_date.to_datetime, format: :long) if newsItem.pub_date.present?
+            = l(newsItem.pub_date, format: :long) if newsItem.pub_date.present?
         .feedNews
           = newsItem.description.html_safe if !newsItem.description.blank?

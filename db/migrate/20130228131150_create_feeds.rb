@@ -11,8 +11,8 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :copyright
       t.string :managing_editor
       t.string :web_master
-      t.string :pub_date
-      t.string :last_build_date
+      t.datetime :pub_date
+      t.datetime :last_build_date
       t.string :categories
       t.string :category_domain
       t.string :generator

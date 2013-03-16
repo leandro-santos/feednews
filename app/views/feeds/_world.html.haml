@@ -1,0 +1,17 @@
+#worldIndex
+  .screenSize
+    - feeds.each_with_index do |feed, i|
+      .feedIndex
+        %h1
+          - if !feed.link.blank?
+            = link_to feed.title.truncate(30), feed.link, target: '_blank', title: feed.title
+          - else
+            = feed.title.truncate(30)
+        - news[i].each do |newsItem|
+          %h5
+            - if newsItem.link.blank?
+              = "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}"
+            - else
+              = link_to "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}", newsItem.link, target: '_blank'
+        %h5
+          = link_to 'Mais', category_item_path(id: feed.category,feed: feed.slug), class: 'indexMore'

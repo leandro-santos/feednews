@@ -1,11 +1,10 @@
 #header
-  background-image: url(/assets/header.jpg)
+  background-image: url(/assets/bg01.jpg)
   clear: both
-  height: 153px
-  margin-bottom: 30px
+  height: 152px
 
   h1
-    background-image: url(/assets/logo.png)
+    background-image: url(/assets/feednews.png)
     top: 25px
 
   .logo
@@ -25,7 +24,8 @@
     visibility: hidden
 
   .linkMenu
-    background-color: #0404b0
+    +box-shadow(inset 0px 0px 20px 7px rgba(255, 122, 0, 0.5))
+    +text-shadow(1px 1px 1px #000)
     color: #fff
     float: left
     font-size: 18px
@@ -33,29 +33,22 @@
     padding: 8px 14px 8px 10px
     text-decoration: none
 
-  .menuDivider
-    background-image: url(/assets/divider.png)
-    background-repeat: no-repeat
-    background-position: right
-
   ul, li
     float: left
 
   ul
-    +box-shadow(#fff 0px 0px 2px 1px)
-    top: 40px
+    background-color: #E84700
     left: 1px
     position: relative
+    top: 40px
 
   li
     display: block
     position: relative
     a:hover
-      +box-shadow(#0404b0 0px 0px 3px 1px)
       background-color: #fff
-      color: #0404b0
+      color: #006F93
 
   .selected
-    +box-shadow(#0404b0 0px 0px 3px 1px)
     background-color: #fff
-    color: #0404b0
+    color: #006F93

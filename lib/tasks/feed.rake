@@ -82,13 +82,23 @@ namespace :fn do
           @news.enclosure_length = it.enclosure.length.to_s if defined? it.enclosure.length
           @news.enclosure_type = it.enclosure.type.to_s if defined? it.enclosure.type
           @news.guid_is_perma_link = it.guid.to_s
-          @news.pub_date = it.pubDate.to_s
+          @news.pub_date = it.pubDate.to_datetime if !it.pubDate.blank?
           @news.source_url = it.source.to_s
           @news.feed_id = feed.id
 
           @news.save!
 
+          if @date.blank? && !it.pubDate.blank? || !@date.blank? && !it.pubDate.blank? && @date < it.pubDate
+            @date = it.pubDate.to_datetime
+          end
+
         end
+
+        if feed.pub_date.blank? && !@date.blank? || !feed.pub_date.blank? && !@date.blank? && @date > feed.pub_date
+          feed.update_attribute(:pub_date, @date)
+        end
+
+        @date = nil
 
         p feed.rss_link
 

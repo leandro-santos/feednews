@@ -1,2 +1,6 @@
 - title 'FeedNEWS'
-= render 'block/feed', feeds: @feeds, news: @news
+
+#index
+  = render 'world', feeds: @feedsWorld, news: @newsWorld
+  = render 'publicity'
+  = render 'news'
