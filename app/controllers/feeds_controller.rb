@@ -2,8 +2,7 @@ class FeedsController < ApplicationController
 
   def index
 
-    @feeds = Feed.order('pub_date DESC NULLS LAST, updated_at DESC').limit(20)
-
+    @news = News.order('pub_date DESC NULLS LAST, updated_at DESC').limit(20)
     @feedsWorld = []
     @newsWorld = []
     @categories = []

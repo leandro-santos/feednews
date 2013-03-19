@@ -1,2 +1,26 @@
 #latestIndex
   .screenSize
+    %h1.latestTitle
+      = 'Últimas notícias'
+    - news.each do |news|
+
+      .titleNews
+        - if !news.feed.image_link.blank? && !news.feed.image_url.blank?
+          = link_to image_tag(news.feed.image_url,class: 'imageTitle'), news.feed.image_link, target: '_blank'
+        .title
+          %h1.titleRss
+            - if !news.feed.link.blank?
+              = link_to news.feed.title, news.feed.link, class: 'linkFeedTitle', target: '_blank'
+            - else
+              = news.feed.title
+
+      .linkNewsTitle
+        %h4.linkNews
+          - if news.link.blank?
+            = news.title
+          - else
+            = link_to news.title, news.link, class: 'linkNews', target: '_blank'
+        %h6.date
+          = l(news.pub_date, format: :long) if news.pub_date.present?
+      .feedNews
+        = news.description.html_safe if !news.description.blank?
