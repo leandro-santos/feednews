@@ -1,1 +1,45 @@
 #newsIndex
+  overflow: hidden
+  zoom: 1
+  padding: 10px 0px
+
+  .newsColumn
+    float: left
+    padding: 0px 20px 0px 20px
+    width: 210px
+
+    li
+      margin: 10px
+
+      .linkTitle
+        color: #E84700
+        text-decoration: none
+        +text-shadow(1px 1px 1px #ccc)
+        &:hover
+          color: #aaa
+
+      .linkItem
+        color: #006F93
+        text-decoration: none
+        +text-shadow(1px 1px 1px #ccc)
+        &:hover
+          color: #aaa
+
+      h5
+        margin: 20px 95px
+      .newsMore
+        +border-radius(5px)
+        +box-shadow(inset 0px 0px 20px 7px rgba(48, 80, 182, 0.5))
+        background-color: #006F93
+        color: #fff
+        text-decoration: none
+        font-weight: bold
+        padding: 8px 24px
+        &:hover
+          background-color: #fff
+          color: #E84700
+
+  .linkPublicity
+    margin: 20px 133px
+    //tirar
+    display: none

@@ -3,4 +3,5 @@
 #index
   = render 'world', feeds: @feedsWorld, news: @newsWorld
   = render 'publicity'
-  = render 'news'
+  = render 'news', categories: @categories, categoryFeeds: @categoryFeeds
+  = render 'latest'

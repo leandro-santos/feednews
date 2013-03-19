@@ -1,1 +1,18 @@
 #newsIndex
+  .screenSize
+    - categories.each_with_index do |category, i|
+      .newsColumn
+        %ul
+          %li
+            %h1
+              = link_to category.description, category_path(id: category), class: 'linkTitle'
+
+          - categoryFeeds[i].each do |feed|
+            %li
+              %h3
+                = link_to feed.title.truncate(20), category_item_path(id: feed.category,feed: feed.slug), title: feed.title, class: 'linkItem'
+          %li
+            %h5
+              = link_to 'Mais', category_path(id: category), class: 'newsMore'
+
+    = link_to image_tag('/assets/publicity2.png',class: 'linkPublicity'), root_path
