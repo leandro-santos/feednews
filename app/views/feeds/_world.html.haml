@@ -4,9 +4,9 @@
       .feedIndex
         %h1
           - if !feed.link.blank?
-            = link_to feed.title.truncate(30), feed.link, target: '_blank', title: feed.title
+            = link_to feed.title.truncate(28), feed.link, target: '_blank', title: feed.title
           - else
-            = feed.title.truncate(30)
+            = feed.title.truncate(28)
         - news[i].each do |newsItem|
           %h5
             - if newsItem.link.blank?

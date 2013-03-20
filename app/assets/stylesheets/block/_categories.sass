@@ -1,28 +1,34 @@
 #categories
+  +box-shadow(inset 0px 0px 60px 30px #005B6D)
+  background-color: #006F93
+  padding: 30px 0px
+
   .screenSize
     .menuCategory
-      background-color: #F9F9F9
+      //background-color: #F9F9F9
       border-style: solid
       border-width: 1px 1px 2px
-      border-color: #aaa
+      border-color: #fff
       overflow: hidden
       padding: 2px 1px 1px 2px
-      width: 996px
+      width: 995px
+      zoom: 1
 
       ul, li
         float: left
         //display: inline-block
 
       .linkCategory
-        color: #555
+        +text-shadow(1px 1px 1px #000)
+        color: #fff
         float: left
         font-size: 15px
         font-weight: bold
         padding: 5px 0px 5px 6px
         text-decoration: none
-        width: 160px
+        width: 159px
         &:hover
-          color: #4194DB
+          color: #999
 
       .selected
-        color: #4194DB
+        color: #999

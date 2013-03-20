@@ -11,7 +11,7 @@ class FeedsController < ApplicationController
       @categories << category
       @categoryFeeds << Feed.where('category_id = ?', category.id).limit(6)
       begin
-        if category.id == 8
+        if category.slug == 'mundo'
           @categoryFeeds.last.each do |feed|
             if @feedsWorld.size <= 2 && !feed.news.first.title.blank?
               @feedsWorld << feed
