@@ -1,1 +1,10 @@
-
+User-agent: *
+Disallow:
+User-agent: Googlebot
+Disallow:
+User-agent: Slurp
+Disallow:
+User-agent: MSNBot
+Disallow:
+User-agent: Mediapartners-Google
+Disallow:

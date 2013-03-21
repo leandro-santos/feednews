@@ -1,6 +1,13 @@
 #publicityIndex
   .screenSize
-    =link_to image_tag('/assets/publicity1.jpg'), root_path, class: 'publicity'
+    .publicity
+      :javascript
+        google_ad_client = "ca-pub-2426498620141581";
+        /* publicity */
+        google_ad_slot = "1142815557";
+        google_ad_width = 300;
+        google_ad_height = 250;
+      %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
     %p.textFeed
       Feeds dos principais
     %p.textBrazil

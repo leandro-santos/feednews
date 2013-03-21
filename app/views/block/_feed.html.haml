@@ -3,7 +3,15 @@
     - feeds.each_with_index do |feed, i|
       .content
         - if i < 1
-          =link_to image_tag('/assets/publicity1.jpg'), root_path, class: 'publicity'
+          .publicity
+            :javascript
+              google_ad_client = "ca-pub-2426498620141581";
+              /* feed */
+              google_ad_slot = "8886408355";
+              google_ad_width = 300;
+              google_ad_height = 250;
+            %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
+
         - if !feed.image_link.blank? && !feed.image_url.blank?
           = link_to image_tag(feed.image_url,class: 'imageTitle'), feed.image_link, target: '_blank'
         .title
@@ -25,3 +33,5 @@
               = l(newsItem.pub_date, format: :long) if newsItem.pub_date.present?
           .feedNews
             = newsItem.description.html_safe if !newsItem.description.blank?
+        %span
+          = link_to 'Mais notícias >>', category_item_path(id: feed.category, feed: feed.slug), class: 'newsMore'
