@@ -4,6 +4,14 @@
 #feed
   .screenSize
     .content
+      .publicity
+        :javascript
+          google_ad_client = "ca-pub-2426498620141581";
+          /* item */
+          google_ad_slot = "5256787554";
+          google_ad_width = 300;
+          google_ad_height = 250;
+        %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
       - if !@feed.image_link.blank? && !@feed.image_url.blank?
         = link_to image_tag(@feed.image_url,class: 'imageTitle'), @feed.image_link, target: '_blank'
       .title
@@ -14,7 +22,7 @@
             = @feed.title
         %h3.subTitleRss
           = @feed.description
-      - @news.each do |newsItem|
+      - @news.each_with_index do |newsItem, i|
         .linkNewsTitle
           %h4.linkNews
             - if newsItem.link.blank?
@@ -25,3 +33,11 @@
             = l(newsItem.pub_date, format: :long) if newsItem.pub_date.present?
         .feedNews
           = newsItem.description.html_safe if !newsItem.description.blank?
+      .publicity1
+        :javascript
+          google_ad_client = "ca-pub-2426498620141581";
+          /* item1 */
+          google_ad_slot = "5117186751";
+          google_ad_width = 728;
+          google_ad_height = 90;
+        %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
