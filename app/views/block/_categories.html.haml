@@ -2,6 +2,6 @@
   .screenSize
     .menuCategory
       %ul
-        - feeds.each do |feed|
+        - category.feed.each do |feed|
           %li
-            = link_to feed.title.truncate(20), category_item_path(id: feed.category, feed: feed.slug), class: "linkCategory #{current_feed(category_item_path(feed: feed.slug))}", title: feed.title
+            = link_to feed.title.truncate(20), category_item_path(id: category, feed: feed.slug), class: "linkCategory #{current_feed(category_item_path(feed: feed.slug))}", title: feed.title

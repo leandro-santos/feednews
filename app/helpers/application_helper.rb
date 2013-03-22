@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def current_feed(path)
-    if request.path.include?(path)
+    if request.path == path
       'selected'
     end
   end

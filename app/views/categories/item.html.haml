@@ -1,5 +1,5 @@
 - title "FeedNEWS - #{@feed.title}"
-= render 'block/categories', feeds: @feeds
+= render 'block/categories', category: @category
 
 #feed
   .screenSize
@@ -22,7 +22,7 @@
             = @feed.title
         %h3.subTitleRss
           = @feed.description
-      - @news.each_with_index do |newsItem, i|
+      - @news.each do |newsItem|
         .linkNewsTitle
           %h4.linkNews
             - if newsItem.link.blank?
@@ -33,6 +33,7 @@
             = l(newsItem.pub_date, format: :long) if newsItem.pub_date.present?
         .feedNews
           = newsItem.description.html_safe if !newsItem.description.blank?
+      //= will_paginate @news
       .publicity1
         :javascript
           google_ad_client = "ca-pub-2426498620141581";

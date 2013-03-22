@@ -8,5 +8,5 @@ class Category < ActiveRecord::Base
   validates_presence_of :description
   validates_uniqueness_of :description
 
-  has_one :feed
+  has_many :feed
 end

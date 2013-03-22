@@ -32,7 +32,7 @@
               = feed.title
           %h3.subTitleRss
             = feed.description
-        - news[i].each do |newsItem|
+        - feed.news.each do |newsItem|
           .linkNewsTitle
             %h4.linkNews
               - if newsItem.link.blank?
@@ -44,4 +44,4 @@
           .feedNews
             = newsItem.description.html_safe if !newsItem.description.blank?
         %span
-          = link_to 'Mais notícias >>', category_item_path(id: feed.category, feed: feed.slug), class: 'newsMore'
+          = link_to 'Mais notícias >>', category_item_path(id: category, feed: feed.slug), class: 'newsMore'
