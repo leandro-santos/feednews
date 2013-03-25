@@ -1,13 +1,13 @@
 #worldIndex
   .screenSize
-    - feeds.each_with_index do |feed, i|
+    - feeds.each do |feed|
       .feedIndex
         %h1
           - if !feed.link.blank?
             = link_to feed.title.truncate(28), feed.link, target: '_blank', title: feed.title
           - else
             = feed.title.truncate(28)
-        - news[i].each do |newsItem|
+        - feed.most_recent.take(4).each do |newsItem|
           %h5
             - if newsItem.link.blank?
               = "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}"

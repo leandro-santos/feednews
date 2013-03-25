@@ -12,7 +12,7 @@
               google_ad_height = 250;
             %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
 
-        - if i == 2
+        - if i == 3
           .publicity2
             :javascript
               google_ad_client = "ca-pub-2426498620141581";
@@ -32,7 +32,7 @@
               = feed.title
           %h3.subTitleRss
             = feed.description
-        - feed.news.each do |newsItem|
+        - feed.most_recent.take(6).each do |newsItem|
           .linkNewsTitle
             %h4.linkNews
               - if newsItem.link.blank?
@@ -45,3 +45,4 @@
             = newsItem.description.html_safe if !newsItem.description.blank?
         %span
           = link_to 'Mais notícias >>', category_item_path(id: category, feed: feed.slug), class: 'newsMore'
+    = will_paginate feeds

@@ -1,7 +1,7 @@
 - title 'FeedNEWS'
 
 #index
-  = render 'world', feeds: @feedsWorld, news: @newsWorld
+  = render 'world', feeds: @feeds
   = render 'publicity'
-  = render 'news', categories: @categories, categoryFeeds: @categoryFeeds
+  = render 'news', categories: @categories
   = render 'latest', news: @news

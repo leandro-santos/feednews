@@ -45,6 +45,7 @@ class Feed < ActiveRecord::Base
   #validates_uniqueness_of :title
 
   has_many :news, dependent: :destroy
+  has_many :most_recent, class_name: 'News', order: 'pub_date DESC NULLS LAST, updated_at DESC'
   belongs_to :category
 
 end
