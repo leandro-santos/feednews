@@ -1,3 +1,25 @@
 #footer
   .screenSize
+    %div{id: 'fb-root'}
     %span.copyright © Copyright 2013 FeedNEWS.
+    %ul
+      %li
+        .fb-like{data: {href: 'http://www.facebook.com/feednews.noticias', send: 'false', layout: 'button_count', width: '80', 'show-faces' => 'false', colorscheme: 'dark'}}
+      %li
+        .g-plusone{data: {size: 'medium', href: 'https://plus.google.com/b/110891446348546443629/110891446348546443629/posts'}}
+
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = '//connect.facebook.net/pt_BR/all.js#xfbml=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  window.___gcfg = {lang: 'pt-BR'};
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
