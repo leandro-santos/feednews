@@ -113,7 +113,7 @@ namespace :fn do
     puts 'Delete news de feeds acima de 200 row-------------------'
     Feed.all.each do |feed|
       puts feed.title
-      puts News.delete(feed.news.offset(200))
+      puts News.delete(feed.news.order('pub_date DESC NULLS LAST, updated_at DESC').offset(150))
       puts '--------------------------------'
     end
     puts 'Delete news salvas mais de 15 dias -------------------'
