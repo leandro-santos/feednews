@@ -1,21 +1,9 @@
 - title "FeedNEWS - #{@feed.title}"
 = render 'blocks/categories', category: @category
 
-#item
+#detail
   .screenSize
     .content
-      .itemPublicity1
-        // LOMADEE - BEGIN
-        :javascript
-          lmd_source="26245104";
-          lmd_si="33718724";
-          lmd_pu="22628114";
-          lmd_c="BR";
-          lmd_wi="300";
-          lmd_he="250";
-        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
-        // LOMADEE - END
-
       - if !@feed.image_link.blank? && !@feed.image_url.blank?
         = link_to image_tag(@feed.image_url,class: 'imageTitle'), @feed.image_link, target: '_blank'
       .title
@@ -26,22 +14,49 @@
             = @feed.title
         %h3.subTitleRss
           = @feed.description
+
+      .linkNewsTitle
+        %h4.linkNews
+          - if @selectedNews.link.blank?
+            = @selectedNews.title
+          - else
+            = link_to @selectedNews.title, @selectedNews.link, class: 'linkNews', target: '_blank'
+        %h6.date
+          = l(@selectedNews.pub_date, format: :long) if @selectedNews.pub_date.present?
+      .feedNews
+        = @selectedNews.description.html_safe if !@selectedNews.description.blank?
+
+      .detailPublicity1
+        // LOMADEE - BEGIN
+        :javascript
+          lmd_source="26245149";
+          lmd_si="33718724";
+          lmd_pu="22628114";
+          lmd_c="BR";
+          lmd_wi="300";
+          lmd_he="250";
+        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+        // LOMADEE - END
+
+      %h1.moreNews
+        Mais notícias
+
       - @news.each do |newsItem|
         .linkNewsTitle
           %h4.linkNews
             //- if newsItem.link.blank?
             //  = newsItem.title
             //- else
-            = link_to newsItem.title, category_detail_path(@category.slug, @feed.slug, newsItem.slug), class: 'linkNews'
+            = link_to newsItem.title, category_detail_path(@category.slug, @feed.slug, newsItem.slug)+"?page=#{@news.current_page}", class: 'linkNews'
           %h6.date
             = l(newsItem.pub_date, format: :long) if newsItem.pub_date.present?
         //.feedNews
         //  = newsItem.description.html_safe if !newsItem.description.blank?
     = will_paginate @news
-    .itemPublicity2
+    .detailPublicity2
       // LOMADEE - BEGIN
       :javascript
-        lmd_source="26245112";
+        lmd_source="26245156";
         lmd_si="33718724";
         lmd_pu="22628114";
         lmd_c="BR";

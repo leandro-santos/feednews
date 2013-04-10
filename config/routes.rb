@@ -2,11 +2,18 @@ Feednews::Application.routes.draw do
 
   root :to => 'feeds#index'
 
+
+
+  controller :news do
+    get '/noticias-mais-recentes', action: :recent, as: :news_recent
+    get '/search', action: :search, as: :news_search
+  end
+
   controller :categories do
     get '/:id', action: :show, as: :category
     get '/:id/:feed', action: :item, as: :category_item
+    get '/:id/:feed/:news', action: :detail, as: :category_detail
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -13,6 +13,7 @@ class CreateNews < ActiveRecord::Migration
       t.string :guid_is_perma_link
       t.datetime :pub_date
       t.string :source_url
+      t.string :slug
 
       t.references :feed
 
@@ -20,6 +21,7 @@ class CreateNews < ActiveRecord::Migration
     end
 
     add_index :news, :feed_id
+    add_index :news, :slug, unique: true
   end
 
   def down

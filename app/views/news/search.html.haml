@@ -1,0 +1,10 @@
+- title 'FeedNEWS - Resultado da busca'
+
+#search
+  .screenSize
+    %h1.titleLista
+      Resultado da busca
+
+    = render 'blocks/latest', news: @news
+
+    = will_paginate @news

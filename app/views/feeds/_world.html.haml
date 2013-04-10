@@ -4,14 +4,14 @@
       .feedIndex
         %h1
           - if !feed.link.blank?
-            = link_to feed.title.truncate(28), feed.link, target: '_blank', title: feed.title
+            = link_to feed.title.truncate(28), category_item_path(id: feed.category.slug, feed: feed.slug), title: feed.title
           - else
             = feed.title.truncate(28)
         - feed.most_recent.take(4).each do |newsItem|
           %h5
-            - if newsItem.link.blank?
-              = "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}"
-            - else
-              = link_to "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}", newsItem.link, target: '_blank'
+            //- if newsItem.link.blank?
+            //  = "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}"
+            //- else
+            = link_to "#{l(newsItem.pub_date, format: "%e/%b") if newsItem.pub_date.present?} #{newsItem.title.truncate(72)}", category_detail_path(feed.category.slug, feed.slug, newsItem.slug)
         %h5
-          = link_to 'Mais', category_item_path(id: feed.category,feed: feed.slug), class: 'indexMore'
+          = link_to 'Mais', category_item_path(id: feed.category.slug,feed: feed.slug), class: 'indexMore'

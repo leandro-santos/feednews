@@ -1,0 +1,54 @@
+#feed
+  .screenSize
+    - feeds.each_with_index do |feed, i|
+      .content
+        - if i < 1
+          .feedPublicity1
+            // LOMADEE - BEGIN
+            :javascript
+              lmd_source="26245032";
+              lmd_si="33718724";
+              lmd_pu="22628114";
+              lmd_c="BR";
+              lmd_wi="300";
+              lmd_he="250";
+            %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+            // LOMADEE - END
+
+        - if i == 3
+          .feedPublicity2
+            // LOMADEE - BEGIN
+            :javascript
+              lmd_source="26245043";
+              lmd_si="33718724";
+              lmd_pu="22628114";
+              lmd_c="BR";
+              lmd_wi="300";
+              lmd_he="250";
+            %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+            // LOMADEE - END
+
+        - if !feed.image_link.blank? && !feed.image_url.blank?
+          = link_to image_tag(feed.image_url,class: 'imageTitle'), category_item_path(id: category.slug, feed: feed.slug)
+        .title
+          %h1.titleRss
+            - if !feed.link.blank?
+              = link_to feed.title, category_item_path(id: category.slug, feed: feed.slug), class: 'linkFeedTitle'
+            - else
+              = feed.title
+          %h3.subTitleRss
+            = feed.description
+        - feed.most_recent.take(12).each do |newsItem|
+          .linkNewsTitle
+            %h4.linkNews
+              //- if newsItem.link.blank?
+              //  = newsItem.title
+              //- else
+              = link_to newsItem.title, category_detail_path(category.slug, feed.slug, newsItem.slug), class: 'linkNews'
+            %h6.date
+              = l(newsItem.pub_date, format: :long) if newsItem.pub_date.present?
+          //.feedNews
+          //  = newsItem.description.html_safe if !newsItem.description.blank?
+        %span
+          = link_to 'Mais notícias >>', category_item_path(id: category.slug, feed: feed.slug), class: 'newsMore'
+    = will_paginate feeds

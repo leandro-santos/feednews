@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(:version => 20130228131248) do
     t.string   "guid_is_perma_link"
     t.datetime "pub_date"
     t.string   "source_url"
+    t.string   "slug"
     t.integer  "feed_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
 
   add_index "news", ["feed_id"], :name => "index_news_on_feed_id"
+  add_index "news", ["slug"], :name => "index_news_on_slug", :unique => true
 
 end

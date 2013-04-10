@@ -1,25 +1,18 @@
 #header
   background-image: url(/assets/bg01.jpg)
   clear: both
-  height: 152px
+  height: 182px
 
   h1
     background-image: url(/assets/feednews.png)
     top: 25px
 
   .logo
-    display: block
+    display: inline-block
     float: left
     height: 88px
     position: relative
     width: 250px
-
-  .publicity
-    display: block
-    float: left
-    left: 10px
-    position: relative
-    top: 22px
 
   .linkMenu
     +box-shadow(inset 0px 0px 20px 7px rgba(255, 122, 0, 0.5))
@@ -31,22 +24,40 @@
     padding: 8px 14px 8px 10px
     text-decoration: none
 
-  ul, li
+  .menubar
+    clear: both
+    display: inline-block
     float: left
+    ul, li
+      float: left
 
-  ul
-    background-color: #E84700
-    left: 1px
-    position: relative
-    top: 40px
+    ul
+      background-color: #E84700
+      left: 1px
+      position: relative
+      top: 35px
+      display: inline-block
 
-  li
-    display: block
-    position: relative
-    a:hover
-      background-color: #fff
-      color: #006F93
+    li
+      display: block
+      position: relative
+      a:hover
+        background-color: #fff
+        color: #006F93
 
   .selected
     background-color: #fff
     color: #006F93
+
+  .search
+    clear: both
+    display: inline-block
+    float: right
+    position: relative
+    top: 29px
+    ul
+      li
+        float: left
+        padding: 9px 3px
+      .form
+        padding: 0px

@@ -1,0 +1,10 @@
+- title "FeedNEWS - Notícias mais recentes"
+
+#recent
+  .screenSize
+    %h1.titleLista
+      Notícias mais recentes
+
+    = render 'blocks/latest', news: @news
+
+    = will_paginate @news

@@ -1,0 +1,4 @@
+= form_tag({controller: 'news', action: 'search'}, method: 'get') do
+  %fieldset
+    = text_field_tag :value, nil, placeholder: 'Busque no FeedNEWS', class: 'searchValue'
+    = submit_tag 'Buscar', class: 'searchButton'

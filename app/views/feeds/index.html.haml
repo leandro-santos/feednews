@@ -4,4 +4,7 @@
   = render 'world', feeds: @feeds
   = render 'publicity'
   = render 'news', categories: @categories
-  = render 'latest', news: @news
+  .screenSize
+    %h1.titleLista
+      = link_to 'Notícias mais recentes', news_recent_path, class: 'titleLista'
+    = render 'blocks/latest', news: @news

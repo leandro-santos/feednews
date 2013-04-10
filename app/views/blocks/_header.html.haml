@@ -1,0 +1,46 @@
+#header
+  .screenSize
+
+    %h1.logo
+      =link_to '', root_path, class: 'logo'
+
+    .headerPublicity
+      // LOMADEE - BEGIN
+      :javascript
+        lmd_source="26244956";
+        lmd_si="33718724";
+        lmd_pu="22628114";
+        lmd_c="BR";
+        lmd_wi="728";
+        lmd_he="90";
+      %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language:'javascript'}
+      // LOMADEE - END
+
+
+    .search
+      %ul
+        %li
+          .fb-like{data: {href: 'http://www.facebook.com/feednews.noticias', send: 'false', layout: 'button_count', width: '80', :'show-faces' => 'false', colorscheme: 'dark'}}
+        %li
+          .g-plusone{data: {size: 'medium', margin: '3', href: '//plus.google.com/110891446348546443629'}}
+        %li.form
+          = render '/news/search'
+
+    .menubar
+      %ul
+        %li
+          =link_to 'Últimas Notícias', category_path(id: 'ultimas-noticias'), class: "linkMenu #{current_category(category_path(id: 'ultimas-noticias'))}"
+        %li
+          =link_to 'Esporte', category_path(id: 'esporte'), class: "linkMenu #{current_category(category_path(id: 'esporte'))}"
+        %li
+          =link_to 'Economia', category_path(id: 'economia'), class: "linkMenu #{current_category(category_path(id: 'economia'))}"
+        %li
+          =link_to 'Mundo', category_path(id: 'mundo'), class: "linkMenu #{current_category(category_path(id: 'mundo'))}"
+        %li
+          =link_to 'Entreterimento', category_path(id: 'entreterimento'), class: "linkMenu #{current_category(category_path(id: 'entreterimento'))}"
+        %li
+          =link_to 'Tecnologia', category_path(id: 'tecnologia'), class: "linkMenu #{current_category(category_path(id: 'tecnologia'))}"
+        %li
+          =link_to 'Educação', category_path(id: 'educacao'), class: "linkMenu #{current_category(category_path(id: 'educacao'))}"
+        %li
+          =link_to 'Ciência e Saúde', category_path(id: 'ciencia-e-saude'), class: "linkMenu #{current_category(category_path(id: 'ciencia-e-saude'))}"

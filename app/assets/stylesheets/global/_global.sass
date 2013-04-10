@@ -22,6 +22,7 @@ h6
   font-size: 12px
 
 .feedNews
+  margin-bottom: 20px
   overflow: hidden
   zoom: 1 //usado IE < 8
 
@@ -79,3 +80,43 @@ h6
     display: inline-block
     padding: 3px 6px
     text-decoration: none
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+  border: 0px
+  padding: 0px
+
+button, input
+  box-sizing: content-box
+  -moz-box-sizing: content-box
+  -ms-box-sizing: content-box
+  -webkit-box-sizing: content-box
+  -moz-appearance: textfield
+  line-height: normal !important
+  outline: 0 none !important
+  // ie6
+  overflow: visible
+  width: auto
+
+// partial _search
+.searchValue
+  +border-radius(3px)
+  border: 1px solid #005B6D
+  padding: 8px !important
+  width: 200px
+  white-space: nowrap
+.searchButton
+  +border-radius(3px)
+  +box-shadow(inset 0px -8px 20px 0px #005B6D)
+  background-color: #006F93
+  border: 1px solid #005B6D
+  color: #fff
+  font-size: 14px
+  padding: 8px !important
+  position: relative
+  right: 9px
+  white-space: nowrap
+  &:hover
+    +box-shadow(inset 0px -8px 20px 0px #006F93)
+    background-color: #005B6D
+// partial _search

@@ -1,5 +1,18 @@
 #newsIndex
   .screenSize
+    .newsPublicity
+      // LOMADEE - BEGIN
+      :javascript
+        lmd_source="26244990";
+        lmd_si="33718724";
+        lmd_pu="22628114";
+        lmd_c="BR";
+        lmd_wi="728";
+        lmd_he="90";
+
+      %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+      // LOMADEE - END
+
     - categories.each do |category|
       .newsColumn
         %ul
@@ -10,16 +23,7 @@
           - category.feed.take(6).each do |feed|
             %li
               %h3
-                = link_to feed.title.truncate(20), category_item_path(id: category,feed: feed.slug), title: feed.title, class: 'linkItem'
+                = link_to feed.title.truncate(20), category_item_path(id: category.slug,feed: feed.slug), title: feed.title, class: 'linkItem'
           %li
             %h5
-              = link_to 'Mais', category_path(id: category), class: 'newsMore'
-
-    .linkPublicity
-      :javascript
-        google_ad_client = "ca-pub-2426498620141581";
-        /* news */
-        google_ad_slot = "4177007150";
-        google_ad_width = 728;
-        google_ad_height = 90;
-      %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
+              = link_to 'Mais', category_path(id: category.slug), class: 'newsMore'

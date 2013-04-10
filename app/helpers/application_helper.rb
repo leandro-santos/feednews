@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def current_feed(path)
-    if request.path == path
+    if request.path == path || request.path.to(path.size) == path+'/'
       'selected'
     end
   end

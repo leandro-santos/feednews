@@ -1,0 +1,100 @@
+#latestIndex
+  - news.each_with_index do |news, i|
+
+    - if i < 1
+      .latestPublicity1
+        // LOMADEE - BEGIN
+        :javascript
+          lmd_source="26245195";
+          lmd_si="33718724";
+          lmd_pu="22628114";
+          lmd_c="BR";
+          lmd_wi="300";
+          lmd_he="250";
+        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+        // LOMADEE - END
+
+    - if i == 6
+      .latestPublicity2
+        // LOMADEE - BEGIN
+        :javascript
+          lmd_source="26245197";
+          lmd_si="33718724";
+          lmd_pu="22628114";
+          lmd_c="BR";
+          lmd_wi="728";
+          lmd_he="90";
+        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+        // LOMADEE - END
+
+    - if i == 12
+      .latestPublicity3
+        // LOMADEE - BEGIN
+        :javascript
+          lmd_source="26245201";
+          lmd_si="33718724";
+          lmd_pu="22628114";
+          lmd_c="BR";
+          lmd_wi="300";
+          lmd_he="250";
+        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+        // LOMADEE - END
+
+    -if i == 18
+      .latestPublicity4
+        // LOMADEE - BEGIN
+        :javascript
+          lmd_source="26245203";
+          lmd_si="33718724";
+          lmd_pu="22628114";
+          lmd_c="BR";
+          lmd_wi="728";
+          lmd_he="90";
+        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+        // LOMADEE - END
+
+    -if i == 24
+      .latestPublicity5
+        // LOMADEE - BEGIN
+        :javascript
+          lmd_source="26245228";
+          lmd_si="33718724";
+          lmd_pu="22628114";
+          lmd_c="BR";
+          lmd_wi="300";
+          lmd_he="250";
+        %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+        // LOMADEE - END
+
+    .titleNews
+      - if !news.feed.image_link.blank? && !news.feed.image_url.blank?
+        = link_to image_tag(news.feed.image_url,class: 'imageTitle'),category_item_path(id: news.feed.category.slug, feed: news.feed.slug)
+      .title
+        %h1.titleRss
+          - if !news.feed.link.blank?
+            = link_to news.feed.title, category_item_path(id: news.feed.category.slug, feed: news.feed.slug), class: 'linkFeedTitle'
+          - else
+            = news.feed.title
+
+    .linkNewsTitle
+      %h4.linkNews
+        - if news.link.blank?
+          = news.title
+        - else
+          = link_to news.title, news.link, class: 'linkNews', target: '_blank'
+      %h6.date
+        = l(news.pub_date, format: :long) if news.pub_date.present?
+    .feedNews
+      = news.description.html_safe if !news.description.blank?
+
+  .latestPublicity6
+    // LOMADEE - BEGIN
+    :javascript
+      lmd_source="26245232";
+      lmd_si="33718724";
+      lmd_pu="22628114";
+      lmd_c="BR";
+      lmd_wi="728";
+      lmd_he="90";
+    %script{src: 'http://image.lomadee.com/js/ad_lomadee.js', type: 'text/javascript', language: 'javascript'}
+    // LOMADEE - END
