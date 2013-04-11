@@ -8,3 +8,4 @@ User-agent: MSNBot
 Disallow:
 User-agent: Mediapartners-Google
 Disallow:
+Sitemap: http://www.feednews.com.br/sitemap.xml
